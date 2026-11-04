@@ -1,0 +1,23 @@
+{
+  "name": "VBookmarker",
+  "version": "0.0.2",
+  "description": "Attempt to bookmark YouTube video at current time",
+  "manifest_version": 3,
+  "background":
+   {"service_worker": "background.js" },
+  "content_scripts": [{
+    "matches": [ "https://*.youtube.com/*"],
+    "js": [ "content.js" ],
+    "run_at": "document_start"
+  }],
+  "permissions": ["bookmarks", "activeTab"],
+  "icons": {
+    "16": "yt_bookmark_16.png",
+    "48": "yt_bookmark_48.png",
+    "128": "yt_bookmark_128.png"
+  },
+  "action": {
+    "default_title": "Add bookmark at current time to watch later.",
+    "default_popup": "popup.html"
+  }
+}
