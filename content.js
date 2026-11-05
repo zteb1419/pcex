@@ -15,7 +15,11 @@ var interval = setInterval(function() {
   }    
 }, 200);
 
-String.prototype.toSeconds = function () { 	if (!this) return null; 	var ms = this.split(':'); 	return ( (+ms[0]) * 60 + (+ms[1] || 0));  }
+String.prototype.toSeconds = function () {
+  if (!this) return null;
+  var ms = this.split(':');
+  return ms.length === 3 ? (+ms[0])*60*60 + (+ms[1])*60 + (+ms[0]):(+ms[0])*60 + (+ms[1]); 
+}
 
 button.addEventListener('click', () => {
   let curTime = document.querySelector(".ytp-time-current").innerHTML;
